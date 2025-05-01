@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 fn get_five(is_negative: bool) -> i32 {
     // если просто написать 5, без return и точки с запятой,
     // то это будет считаться выходом из функции с аргументом
@@ -14,6 +15,7 @@ fn get_five(is_negative: bool) -> i32 {
     }
 }
 
+#[allow(dead_code)]
 pub fn test() {
     // ЭТО ЧТО ЗА ДИЧ, офигеть
     let y = {

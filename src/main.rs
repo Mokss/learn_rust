@@ -7,5 +7,5 @@ fn main () {
     // guess_game::guess_game()
     // common_programming_concepts::shadowing::shadowing();
     // common_programming_concepts::data_types::data_types();
-    common_programming_concepts::functions::test();
+    common_programming_concepts::control_flow::test();
 }
