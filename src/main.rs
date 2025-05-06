@@ -4,10 +4,5 @@ mod guess_game;
 mod common_programming_concepts;
 
 fn main () {
-    // guess_game::guess_game()
-    // common_programming_concepts::shadowing::shadowing();
-    // common_programming_concepts::data_types::data_types();
-    // common_programming_concepts::control_flow::test();
-    // common_programming_concepts:: ownership::ownership();
-    common_programming_concepts::references_and_borrowing::references_and_borrowing();
+    common_programming_concepts::slice_type::slite_type();
 }
