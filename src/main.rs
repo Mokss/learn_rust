@@ -2,7 +2,8 @@
 // это вам не js, все начинается с main)
 mod guess_game;
 mod common_programming_concepts;
+mod structures;
 
 fn main () {
-    common_programming_concepts::slice_type::slite_type();
+    structures::instance_struct::instance_struct();
 }
