@@ -5,5 +5,5 @@ mod common_programming_concepts;
 mod structures;
 
 fn main () {
-    structures::instance_struct::instance_struct();
+    structures::methods::methods();
 }
