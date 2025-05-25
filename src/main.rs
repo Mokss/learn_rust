@@ -3,7 +3,8 @@
 mod guess_game;
 mod common_programming_concepts;
 mod structures;
+mod enums;
 
 fn main () {
-    structures::methods::methods();
+    enums::enums::test();
 }
