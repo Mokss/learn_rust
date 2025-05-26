@@ -5,7 +5,17 @@ use std::borrow::Cow;
 enum RusState {
     Alabama,
     Alaska,
-    KrasnodarskyCry,
+    KrasnodarKrai,
+}
+
+impl RusState {
+    fn existed_in(&self, year: u16) -> bool {
+        match self {
+            RusState::Alabama => year >= 1819,
+            RusState::Alaska => year >= 1959,
+            RusState:: KrasnodarKrai => year >= 1900,
+        }
+    }
 }
 
 #[derive(Debug)]
@@ -17,7 +27,7 @@ enum Coin {
     Quarter(RusState),
 }
 
-const COINS: [Coin; 4]  = [Coin::Penny, Coin::Nickel, Coin::Dime, Coin::Quarter(RusState::KrasnodarskyCry)];
+const COINS: [Coin; 4]  = [Coin::Penny, Coin::Nickel, Coin::Dime, Coin::Quarter(RusState::KrasnodarKrai)];
 
 // интересный код, по факту каждый раз мы будем возвращать указатели на строки
 // в случае с константными строками, память не будет дополнительно выделятся
@@ -56,6 +66,18 @@ fn value_in_cents(coin: &Coin) -> u8 {
         }
     }
 }
+#[allow(dead_code)]
+fn describe_state_quarter(coin: Coin) -> Option<String> {
+    let Coin::Quarter(state) = coin else {
+        return None;
+    };
+
+    if state.existed_in(1900) {
+        Some(format!("{state:?} is pretty old, for America!"))
+    } else {
+        Some(format!("{state:?} is relatively new."))
+    }
+}
 
 pub fn test() {
     for n in [3, 15, 27, 91, 105] {
@@ -67,4 +89,13 @@ pub fn test() {
     for n in  &COINS {
         println!("{n:?} → {}",  value_in_cents(n));
     }
+
+    let str_dime = describe_state_quarter(Coin::Dime);
+    let str_alabama = describe_state_quarter(Coin::Quarter(RusState::Alabama));
+    let str_alaska_cry = describe_state_quarter(Coin::Quarter(RusState::Alaska));
+
+
+    println!("{str_dime:?} {str_alabama:?} {str_alaska_cry:?}");
+
+    return; 
 }
